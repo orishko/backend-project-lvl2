@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 import path from 'path';
 import fs from 'fs';
 import { fileURLToPath } from 'url';
@@ -9,7 +10,9 @@ const __dirname = path.dirname(__filename);
 const getFixturePath = (filename) => path.join(__dirname, '..', '__fixtures__', filename);
 const readFile = (filename) => fs.readFileSync(getFixturePath(filename), 'utf8');
 
-let actual, path1, path2;
+let actual;
+let path1;
+let path2;
 
 beforeAll(() => {
   actual = readFile('actual.txt', 'utf8');
