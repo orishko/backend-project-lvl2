@@ -3,3 +3,6 @@ lint:
 
 install:
 	npm ci
+
+test-coverage:
+	npx jest --coverage
