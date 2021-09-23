@@ -1,20 +1,26 @@
 import { readFileSync } from 'fs';
+import path from 'path';
 import _ from 'lodash';
 
-const getFormat = (path) => _.last(path.split('.'));
 
-const getData = (filepath) => readFileSync(filepath);
+const normalizePath = (filepath) => path.resolve(process.cwd(), filepath);
 
-const readFile = (path) => {
-  const format = getFormat(path);
+const getFormat = (filepath) => path.extname(filepath).slice(1);
+
+const getData = (filepath) => readFileSync(filepath, 'utf8');
+
+const readFile = (filepath) => {
+  const normalizeFilePath = normalizePath(filepath);
+  const format = getFormat(normalizeFilePath);
   if (format !== 'json') throw Error('Wrong file format');
 
-  const rawData = getData(path);
+  const rawData = getData(normalizePath(normalizeFilePath));
   const obj = JSON.parse(rawData);
   return obj;
 };
 
 const genDiff = (filepath1, filepath2) => {
+
   const obj1 = readFile(filepath1);
   const obj2 = readFile(filepath2);
 
@@ -48,4 +54,3 @@ const genDiff = (filepath1, filepath2) => {
 };
 
 export default genDiff;
-// console.log(process.cwd());
