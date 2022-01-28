@@ -1,6 +1,7 @@
 env:
   es2021: true
   node: true
+  jest: true # fix error not defined Jest functions
 extends:
   - airbnb-base
 parserOptions:
