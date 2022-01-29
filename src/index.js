@@ -1,5 +1,5 @@
 import getDifference from './getdifference.js';
-import { readFile } from './filehendler.js';
+import readFile from './parsers.js';
 
 const genDiff = (filePath1, filePath2) => {
   const obj1 = readFile(filePath1);
