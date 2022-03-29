@@ -23,8 +23,7 @@ const getDiff = (obj1, obj2) => {
     if (obj1[key] !== obj2[key]) {
       return {
         key,
-        value1: obj1[key],
-        value2: obj2[key],
+        value: [obj1[key], obj2[key]],
         status: 'changed',
       };
     }
