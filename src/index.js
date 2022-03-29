@@ -8,7 +8,6 @@ const genDiff = (filePath1, filePath2) => {
   const obj1 = readFile(filePath1);
   const obj2 = readFile(filePath2);
   const result = getDifference(obj1, obj2);
-  console.log(result);
   const makeResultString = result.map((data) => {
     const key = getKey(data);
     const value = getValue(data);
@@ -22,7 +21,7 @@ const genDiff = (filePath1, filePath2) => {
       case 'changed':
         return `  - ${key}: ${value[0]}\n  + ${key}: ${value[1]}`;
       default:
-        throw new Error('Unexpected status');
+        throw new Error(`${data.status} - Unexpected status`);
     }
   });
 
