@@ -14,6 +14,8 @@ const cases = [
   ['file1.yaml', 'file2.yaml', 'stylish', 'stylish.txt'],
   ['file1.json', 'file2.json', 'plain', 'plain.txt'],
   ['file1.yaml', 'file2.yaml', 'plain', 'plain.txt'],
+  ['file1.json', 'file2.json', 'json', 'json.txt'],
+  ['file1.yaml', 'file2.yaml', 'json', 'json.txt'],
 ];
 
 test.each(cases)('%# - Compare  %s and %s using %s formatter', (file1, file2, formatter, expected) => {
