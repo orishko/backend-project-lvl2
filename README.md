@@ -42,16 +42,16 @@ Options:
 
 ### Comparison of two flat files with 'stylish' formatter
 
-https://asciinema.org/a/BwQZk03YTR2Db1KREzIdJBz8m
+[![asciicast](https://asciinema.org/a/BwQZk03YTR2Db1KREzIdJBz8m.svg)](https://asciinema.org/a/BwQZk03YTR2Db1KREzIdJBz8m)
 
 ### Comparison of two nested files with 'stylish' formatter
 
-https://asciinema.org/a/DmvLU1yqpSfHn8Kbqp3jvX4lf
+[![asciicast](https://asciinema.org/a/DmvLU1yqpSfHn8Kbqp3jvX4lf.svg)](https://asciinema.org/a/DmvLU1yqpSfHn8Kbqp3jvX4lf)
 
 ### Comparison of two nested files with 'plain' formatter
 
-https://asciinema.org/a/hDXlt0e9nP9aTOwio13nXtXmy
+[![asciicast](https://asciinema.org/a/hDXlt0e9nP9aTOwio13nXtXmy.svg)](https://asciinema.org/a/hDXlt0e9nP9aTOwio13nXtXmy)
 
 ### Comparison of two nested files with 'json' formatter
 
-https://asciinema.org/a/K2YoRZ94Wf0uSNgspKHloym0z
+[![asciicast](https://asciinema.org/a/K2YoRZ94Wf0uSNgspKHloym0z.svg)](https://asciinema.org/a/K2YoRZ94Wf0uSNgspKHloym0z)
