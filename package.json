@@ -1,8 +1,8 @@
 {
   "name": "@hexlet/code",
   "version": "1.0.0",
-  "description": "[![Actions Status](https://github.com/orishko/backend-project-lvl2/workflows/hexlet-check/badge.svg?branch=)](https://github.com/orishko/backend-project-lvl2/actions?query=branch:)",
-  "main": "index.js",
+  "description": "backend-project-lvl2",
+  "main": "bin/genDiff.js",
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -14,7 +14,7 @@
     "type": "git",
     "url": "git+https://github.com/orishko/backend-project-lvl2.git"
   },
-  "author": "",
+  "author": "Eugene Orishko",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/orishko/backend-project-lvl2/issues"
