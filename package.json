@@ -2,7 +2,7 @@
   "name": "@hexlet/code",
   "version": "1.0.0",
   "description": "backend-project-lvl2",
-  "main": "bin/genDiff.js",
+  "main": "bin/gendiff.js",
   "type": "module",
   "scripts": {
     "test": "npx jest --bail"
