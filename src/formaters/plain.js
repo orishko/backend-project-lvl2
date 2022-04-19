@@ -1,7 +1,7 @@
 import _ from 'lodash';
 
 const stringify = (value) => {
-  if (_.isObject(value)) {
+  if (_.isPlainObject(value)) {
     return '[complex value]';
   }
   if (_.isString(value)) {
@@ -11,21 +11,21 @@ const stringify = (value) => {
 };
 
 const iter = (tree, path = '') => {
-  const toString = ({ key, value, status }) => {
-    const commonPath = path ? `${path}.${key}` : key;
-    switch (status) {
+  const toString = (node) => {
+    const commonPath = path ? `${path}.${node.key}` : node.key;
+    switch (node.status) {
       case 'nested':
-        return iter(value, commonPath);
+        return iter(node.value, commonPath);
       case 'added':
-        return `Property '${commonPath}' was added with value: ${stringify(value)}`;
+        return `Property '${commonPath}' was added with value: ${stringify(node.value)}`;
       case 'removed':
         return `Property '${commonPath}' was removed`;
       case 'changed':
-        return `Property '${commonPath}' was updated. From ${stringify(value.first)} to ${stringify(value.second)}`;
+        return `Property '${commonPath}' was updated. From ${stringify(node.oldValue)} to ${stringify(node.newValue)}`;
       case 'unchanged':
         return false;
       default:
-        throw new Error(`Unknown status ${status}`);
+        throw new Error(`Unknown status ${node.status}`);
     }
   };
   return tree.flatMap(toString);

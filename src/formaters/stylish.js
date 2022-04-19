@@ -1,8 +1,5 @@
 import _ from 'lodash';
 
-const getKey = (obj) => obj.key;
-const getValue = (obj) => obj.value;
-const getStatus = (obj) => obj.status;
 const indent = (depth, spaceCount = 4, currentIndent = ' ') => {
   const indentSize = depth * spaceCount - 2;
   return currentIndent.repeat(indentSize);
@@ -24,22 +21,19 @@ const stylish = (data) => {
     const bracketIndent = currentIndent.slice(2);
 
     const result = arr.map((item) => {
-      const key = getKey(item);
-      const value = getValue(item);
-      const status = getStatus(item);
-      switch (status) {
+      switch (item.status) {
         case 'nested':
-          return `${indent(depth)}  ${key}: ${makeResultString(value, depth + 1)}`;
+          return `${indent(depth)}  ${item.key}: ${makeResultString(item.value, depth + 1)}`;
         case 'unchanged':
-          return `${currentIndent}  ${key}: ${getDataFromObject(value, depth + 1)}`;
+          return `${currentIndent}  ${item.key}: ${getDataFromObject(item.value, depth + 1)}`;
         case 'removed':
-          return `${currentIndent}- ${key}: ${getDataFromObject(value, depth + 1)}`;
+          return `${currentIndent}- ${item.key}: ${getDataFromObject(item.value, depth + 1)}`;
         case 'added':
-          return `${currentIndent}+ ${key}: ${getDataFromObject(value, depth + 1)}`;
+          return `${currentIndent}+ ${item.key}: ${getDataFromObject(item.value, depth + 1)}`;
         case 'changed':
-          return `${currentIndent}- ${key}: ${getDataFromObject(value.first, depth + 1)}\n${currentIndent}+ ${key}: ${getDataFromObject(value.second, depth + 1)}`;
+          return `${currentIndent}- ${item.key}: ${getDataFromObject(item.oldValue, depth + 1)}\n${currentIndent}+ ${item.key}: ${getDataFromObject(item.newValue, depth + 1)}`;
         default:
-          throw new Error(`${status} - Unexpected status`);
+          throw new Error(`${item.status} - Unexpected status`);
       }
     });
 
