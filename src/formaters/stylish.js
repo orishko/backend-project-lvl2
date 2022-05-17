@@ -23,7 +23,7 @@ const stylish = (data) => {
     const result = arr.map((item) => {
       switch (item.status) {
         case 'nested':
-          return `${indent(depth)}  ${item.key}: ${makeResultString(item.value, depth + 1)}`;
+          return `${indent(depth)}  ${item.key}: ${makeResultString(item.children, depth + 1)}`;
         case 'unchanged':
           return `${currentIndent}  ${item.key}: ${getDataFromObject(item.value, depth + 1)}`;
         case 'removed':

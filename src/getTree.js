@@ -9,7 +9,7 @@ const fileCompare = (obj1, obj2) => {
     if (_.isPlainObject(obj1[key]) && _.isPlainObject(obj2[key])) {
       return {
         key,
-        value: fileCompare(obj1[key], obj2[key]),
+        children: fileCompare(obj1[key], obj2[key]),
         status: 'nested',
       };
     }

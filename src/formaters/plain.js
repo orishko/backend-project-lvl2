@@ -15,7 +15,7 @@ const iter = (tree, path = '') => {
     const commonPath = path ? `${path}.${node.key}` : node.key;
     switch (node.status) {
       case 'nested':
-        return iter(node.value, commonPath);
+        return iter(node.children, commonPath);
       case 'added':
         return `Property '${commonPath}' was added with value: ${stringify(node.value)}`;
       case 'removed':
