@@ -6,18 +6,18 @@ const fileCompare = (obj1, obj2) => {
 
   const uniqKeysFromObjects = _.sortBy(_.union(key1, key2));
   const result = uniqKeysFromObjects.map((key) => {
-    if (_.isPlainObject(obj1[key]) && _.isPlainObject(obj2[key])) {
-      return {
-        key,
-        children: fileCompare(obj1[key], obj2[key]),
-        status: 'nested',
-      };
-    }
     if (!_.has(obj1, key)) {
       return {
         key,
         value: obj2[key],
         status: 'added',
+      };
+    }
+    if (_.isPlainObject(obj1[key]) && _.isPlainObject(obj2[key])) {
+      return {
+        key,
+        children: fileCompare(obj1[key], obj2[key]),
+        status: 'nested',
       };
     }
     if (!_.has(obj2, key)) {
